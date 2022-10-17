@@ -1,0 +1,39 @@
+#!/bin/bash
+
+comando=""
+flag="-c"
+known="no"
+condition="yes"
+compare=-1
+tiempo=-1
+for i in $@;
+do
+        echo "hola"
+        if [ "$i" != "$flag" ] && [ "$known" != "$condition" ];
+        then
+                comando+="${i} "
+        else
+                if [ "$known" != "$condition" ];
+                then
+                        known="yes"
+                else
+                        if [ "$tiempo" == "$compare" ];
+                        then
+                                tiempo="$i"
+                        else
+                                comando+="${i} "
+                        fi
+                fi
+        fi
+done
+
+
+
+
+echo "$comando" $tiempo
+
+/"$HOME"/.local/bin/slowloris "$comando" &
+
+sleep $tiempo
+
+kill -SIGTERM $!
