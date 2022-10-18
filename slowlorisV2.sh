@@ -8,7 +8,6 @@ compare=-1
 tiempo=-1
 for i in $@;
 do
-        echo "hola"
         if [ "$i" != "$flag" ] && [ "$known" != "$condition" ];
         then
                 comando+="${i} "
