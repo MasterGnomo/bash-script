@@ -29,9 +29,9 @@ done
 
 
 
-echo "$comando" $tiempo
+#echo "$comando" $tiempo
 
-/"$HOME"/.local/bin/slowloris "$comando" &
+/"$HOME"/.local/bin/slowloris $comando &
 
 sleep $tiempo
 
